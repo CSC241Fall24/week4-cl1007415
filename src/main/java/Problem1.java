@@ -4,11 +4,18 @@ public class Problem1 {
         // TODO: Implement the concatenate method
         // This method should concatenate l2 to l1 and return l1
         // Remember to create new nodes instead of directly linking l1 to l2
-        ListNode holder = l2;
-       while(l2.next != null)
-       {
-        l1.next = holder;
-       }
+        ListNode current = l1;
+        while(current.next != null)
+        {
+            current = current.next;
+        }
+        
+        while(l2 != null)
+        {
+            current.next = new ListNode(l2.val);
+            current = current.next;
+            l2 = l2.next;
+        }
         return l1;
     }
 }
