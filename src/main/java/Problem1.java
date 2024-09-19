@@ -6,7 +6,7 @@ public class Problem1 {
         // Remember to create new nodes instead of directly linking l1 to l2
         if(l1 == null)
         {
-            return l1; //tests for empty list
+            return l2; //tests for empty list
         }
         
         ListNode current = l1;
