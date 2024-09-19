@@ -21,8 +21,13 @@ public class Problem2 {
             currentPosition++;
         }
 
+        if(current.next == null)
+        {
+            current.next = newNode;
+        }else{
         newNode.next = current.next;
         current.next = newNode;
+        }
         
         return head;
     }
