@@ -6,8 +6,8 @@ public class Problem2 {
         // If the position is out of bounds, insert the node at the end of the list
         ListNode newNode = new ListNode(val);
 
-        if(head == null || position == 1)
-        {
+        // Case 1: Empty list or insert at the beginning
+        if (head == null || position <= 1) {
             newNode.next = head;
             return newNode;
         }
@@ -15,20 +15,16 @@ public class Problem2 {
         ListNode current = head;
         int currentPosition = 1;
 
-        while(current != null && currentPosition < position - 1)
-        {
+        // Traverse the list until we reach the end or the desired position
+        while (current.next != null && currentPosition < position - 1) {
             current = current.next;
             currentPosition++;
         }
 
-        if(current.next == null)
-        {
-            current.next = newNode;
-        }else{
+        // Insert the new node
         newNode.next = current.next;
         current.next = newNode;
-        }
-        
+
         return head;
     }
 }
