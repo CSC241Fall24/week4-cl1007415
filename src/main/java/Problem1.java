@@ -6,7 +6,7 @@ public class Problem1 {
         // Remember to create new nodes instead of directly linking l1 to l2
         if(l1 == null)
         {
-            return l2; //tests for empty list
+            return copyList(l2); //tests for empty list
         }
         
         ListNode current = l1;
@@ -22,5 +22,25 @@ public class Problem1 {
             l2 = l2.next; //preserving l2
         }
         return l1;
+    }
+
+    private static ListNode copyList(ListNode original)
+    {
+        if(original == null)
+        {
+            return null;
+        }
+
+        ListNode newHead = new ListNode(original.val);
+        ListNode current1 = newHead;
+        ListNode originalCurrent = original.next;
+
+        while(originalCurrent != null)
+        {
+            current1.next = new ListNode(originalCurrent.val);
+            current1 = current1.next;
+            originalCurrent = originalCurrent.next;
+        }
+        return newHead;
     }
 }
